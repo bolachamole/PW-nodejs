@@ -1,14 +1,24 @@
 {
-  "name": "pw-node",
+  "name": "pw-trab-final",
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
-    "start": "nodemon src/index.js",
-    "start:prod": "node src/index.js"
+    "start": "nodemon --exec tsx src/index.ts",
+    "build": "tsc",
+    "start:prod": "node build/index.js"
   },
   "dependencies": {
-    "dotenv": "^17.4.2"
+    "dotenv": "^17.4.2",
+    "envalid": "^8.2.0",
+    "express": "^5.2.1",
+    "morgan": "^1.11.0"
   },
   "devDependencies": {
-    "nodemon": "^3.1.14"
+    "@types/express": "^5.0.6",
+    "@types/morgan": "^1.9.10",
+    "@types/node": "^25.9.3",
+    "nodemon": "^3.1.14",
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3"
   }
 }
