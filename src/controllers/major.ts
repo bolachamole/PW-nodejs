@@ -1,7 +1,15 @@
-import { type Request, type Response } from "express"
+import type { Request, Response } from "express";
 import type { CreateMajorDto } from "../types/major.js";
 import { getMajors, createMajor } from "../services/major.js";
 
+const testCookie = (res: Request, res: Response) =>{
+	if ("name-user" not in req.cookies){
+		res.send(`Olá, ${req.cookies["name-user"}]}");
+	} else{
+		res.cookie("name-user", "Gabriela", { secure: true, httpOnly: true, maxAge: 3600 });
+		res.send(`O cookie não havia sido criado, ${req.cookies["name-user"}]}");
+	}
+}
 const index = async (req: Request, res: Response) => {
 	const majors = await getMajors();
 	res.render("majors/index", { majors });
@@ -57,4 +65,4 @@ const remove = async (req: Request, res: Response) => {
 	}
 }
 
-export default { index, read, create, update, remove }
+export default { testCookie, index, read, create, update, remove }
