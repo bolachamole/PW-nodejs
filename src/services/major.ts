@@ -1,13 +1,5 @@
-import { PrismaClient } from "../generated/prisma/client.js";
-import { PrismaAdapter } from "@prisma/adapter-mariadb";
 import type { CreateMajorDto, UpdateMajorDto } from "../types/major.js";
-import validateEnv from "../utils/validateEnv.js";
-
-const env = validateEnv();
-// acessa o bd
-const adapter = PrismaMariaDb(env.DATABSE_URL);
-// instancia do prisma pra ajudar no acesso
-const prisma = new PrismaClient({ adapter });
+import prisma from "../utils/prismaClient.js";
 
 export async function getMajors(): Promise<Major[]> {
 	return prisma.major.findMany();
